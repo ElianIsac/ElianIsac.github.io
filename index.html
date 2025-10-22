@@ -100,10 +100,42 @@
       color: #999;
       padding: 2rem 0;
     }
+
+/* gradient layer */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, #f8f3ec, #eae6f9, #e5f5f9);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+  filter: contrast(110%) brightness(105%);
+  transition: transform 0.2s ease-out;
+}
+
+/* overlay a noise texture */
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* smooth gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
   </style>
 </head>
 
 <body>
+  <div class="background"></div>
   <main>
     <section id="intro">
       <h1>Elian Isac</h1>
@@ -151,6 +183,14 @@
     </style>
     </section>
   </main>
+
+    <script>
+    const bg = document.querySelector('.background');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        bg.style.transform = `translateY(${scrollY * 0.1}px) rotate(${scrollY * 0.01}deg)`;
+    });
+    </script>
 
   <footer>
     © 2025 Elian Isac
