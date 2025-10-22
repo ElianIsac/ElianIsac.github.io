@@ -1,126 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elian Isac</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Inter:wght@300;500&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
+    :root {
+      --bg: #fafafa;
+      --fg: #0a0a0a;
+      --accent: #1e90ff;
     }
-
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    section {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      color: #333;
+    }
+    .socials {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .socials a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      background: linear-gradient(120deg, #191a2e, #2d0f3f, #091a32);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--fg);
     }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .socials a:hover {
+      background: var(--accent);
+      color: white;
     }
-
-    /* floating glass highlight */
-    .liquid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      pointer-events: none;
-      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-        rgba(255, 255, 255, 0.35) 0%,
-        rgba(255, 255, 255, 0.05) 30%,
-        transparent 70%);
-      filter: blur(100px) saturate(150%);
-      transition: background-position 0.1s;
-      z-index: 0;
-    }
-
-    main {
+    footer {
       text-align: center;
-      color: #fff;
-      position: relative;
-      z-index: 2;
-      animation: fadeIn 2s ease forwards;
-    }
-
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 5rem;
-      font-weight: 400;
-      margin: 0;
-      text-shadow: 0 0 40px rgba(255,255,255,0.3);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    p {
-      font-family: Helvetica, Arial, sans-serif;
-      color: rgba(255,255,255,0.8);
-      letter-spacing: 0.5px;
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    button {
-      margin-top: 2rem;
-      font-family: Helvetica, Arial, sans-serif;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 2rem;
-      padding: 0.8rem 1.6rem;
-      backdrop-filter: blur(10px);
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: rgba(255,255,255,0.25);
-      border-color: rgba(255,255,255,0.5);
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      font-size: 0.9rem;
+      color: #999;
+      padding: 2rem 0;
     }
   </style>
 </head>
-<body>
-  <div class="liquid"></div>
 
+<body>
   <main>
-    <h1>Elian&nbsp;Isac</h1>
-    <p>Computer Science · ETH Zürich</p>
-    <button onclick="window.open('https://linkedin.com/in/elianisac', '_blank')">
-      Connect on LinkedIn
-    </button>
+    <section id="intro">
+      <h1>Elian Isac</h1>
+      <p>Computer Science student at ETH Zürich<br>Building, learning, and exploring technology & design.</p>
+      <div class="socials">
+        <a href="mailto:elianisac@ethz.ch" title="Email">✉️</a>
+        <a href="https://linkedin.com/in/elianisac" target="_blank" title="LinkedIn">in</a>
+        <a href="https://github.com/elianisac" target="_blank" title="GitHub">🐙</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>I’m a developer and student passionate about software systems, robotics, and fintech. 
+         Currently studying Computer Science at ETH Zürich and contributing to Swissloop Tunneling and the ETH Robotics Club.</p>
+    </section>
+
+    <section id="connect">
+      <h2>Let’s connect</h2>
+      <p>If you want to collaborate, chat tech, or discuss an idea — drop me a message.</p>
+      <a href="mailto:elianisac@ethz.ch" class="socials" style="font-size:1rem; text-decoration:none; color:var(--accent); border:1px solid var(--accent); padding:0.6rem 1.2rem; border-radius:2rem;">Get in touch</a>
+    </section>
   </main>
 
-  <script>
-    const liquid = document.querySelector('.liquid');
-    document.addEventListener('mousemove', e => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      liquid.style.setProperty('--x', `${x}%`);
-      liquid.style.setProperty('--y', `${y}%`);
-    });
-  </script>
+  <footer>
+    © 2025 Elian Isac
+  </footer>
 </body>
 </html>
