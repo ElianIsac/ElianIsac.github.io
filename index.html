@@ -3,180 +3,478 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="description" content="About me — brief bio, skills, and contact." />
-    <title>Your Name — About</title>
+    <meta name="theme-color" content="#f7f6f2" />
+    <meta name="description" content="Elian Isac — systems engineer with capital-markets intuition, based in Zürich." />
+    <title>Elian Isac — Calm Systems Engineer</title>
 
-    <!-- Minimal, self-contained styling -->
     <style>
         :root{
-            --bg:#0f172a; --card:#0b1220; --muted:#9aa4b2; --accent:#06b6d4;
-            --glass: rgba(255,255,255,0.03);
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color-scheme: light;
+            --bg:#f7f6f2;
+            --card:#fcfbf9;
+            --ink:#1b1f23;
+            --muted:#626a73;
+            --accent:#0f766e;
+            --accent-soft:rgba(15,118,110,0.12);
+            --line:rgba(20,34,45,0.1);
+            font-family: "Inter", "IBM Plex Sans", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         }
+
         *{box-sizing:border-box}
-        html,body{height:100%}
+
         body{
             margin:0;
-            background:linear-gradient(180deg,var(--bg) 0%, #071028 100%);
-            color:#e6eef6;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            line-height:1.45;
-            padding:32px;
+            background:var(--bg);
+            color:var(--ink);
+            line-height:1.55;
+            font-size:16px;
             display:flex;
+            justify-content:center;
+            padding:56px 20px 64px;
+            -webkit-font-smoothing:antialiased;
+        }
+
+        a{color:var(--accent);text-decoration:none}
+        a:hover{opacity:0.85}
+        a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+        .page{
+            width:min(1040px,100%);
+            display:flex;
+            flex-direction:column;
+            gap:48px;
+        }
+
+        .hero{
+            background:var(--card);
+            border:1px solid var(--line);
+            border-radius:24px;
+            padding:48px;
+            display:flex;
+            gap:40px;
+            align-items:flex-start;
+            flex-wrap:wrap;
+            box-shadow:0 40px 70px rgba(16,24,32,0.08);
+        }
+
+        .hero-copy{flex:1 1 420px;min-width:320px}
+        .hero-overline{
+            font-size:0.85rem;
+            text-transform:uppercase;
+            letter-spacing:0.18em;
+            color:var(--muted);
+            margin:0 0 8px;
+        }
+
+        h1{
+            margin:0;
+            font-size:2.4rem;
+            letter-spacing:-0.02em;
+        }
+
+        .hero-lead{
+            margin:20px 0 26px;
+            font-size:1.05rem;
+            color:var(--muted);
+        }
+
+        .hero-meta{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+            margin-bottom:28px;
+        }
+
+        .meta-block{
+            padding:18px;
+            border:1px solid var(--line);
+            border-radius:16px;
+            background:rgba(255,255,255,0.5);
+        }
+
+        .meta-label{
+            font-size:0.78rem;
+            letter-spacing:0.16em;
+            text-transform:uppercase;
+            color:var(--muted);
+        }
+
+        .meta-block p{
+            margin:6px 0 0;
+            font-size:0.98rem;
+        }
+
+        .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+        .btn{
+            display:inline-flex;
             align-items:center;
             justify-content:center;
-            font-size:16px;
+            padding:12px 20px;
+            border-radius:999px;
+            font-weight:600;
+            font-size:0.95rem;
+            border:1px solid var(--accent);
+            transition:transform 0.18s ease, box-shadow 0.18s ease;
         }
 
-        .container{
-            width:100%;
-            max-width:960px;
-            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border:1px solid rgba(255,255,255,0.04);
-            border-radius:12px;
-            padding:28px;
-            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
-            backdrop-filter: blur(6px);
+        .btn.primary{
+            background:var(--accent);
+            color:#fefefe;
+            box-shadow:0 12px 20px rgba(15,118,110,0.22);
         }
 
-        header{display:flex;gap:20px;align-items:center}
-        .avatar{
-            width:96px;height:96px;border-radius:14px;
-            background:linear-gradient(135deg,var(--glass),rgba(255,255,255,0.02));
-            display:grid;place-items:center;
-            flex:0 0 96px;
-            border:1px solid rgba(255,255,255,0.04);
-            overflow:hidden;
+        .btn.ghost{
+            background:transparent;
+            color:var(--accent);
         }
-        .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
-        h1{margin:0;font-size:1.5rem;letter-spacing:-0.02em}
-        p.lead{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+        .btn:hover{transform:translateY(-1px)}
 
-        nav{margin-left:auto}
-        .nav-links{display:flex;gap:10px}
-        .btn{
-            background:transparent;border:1px solid rgba(255,255,255,0.06);
-            color:var(--muted);padding:8px 12px;border-radius:8px;text-decoration:none;
+        .hero-card{
+            flex:1 1 220px;
+            min-width:220px;
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        .passport{
+            padding:18px 20px;
+            border:1px solid var(--line);
+            border-radius:18px;
+            background:var(--card);
+        }
+
+        .passport p{
+            margin:6px 0 0;
+            font-size:0.95rem;
+            color:var(--ink);
+        }
+
+        .hero-note{
+            border-radius:16px;
+            padding:18px 20px;
+            background:var(--accent-soft);
+            color:var(--accent);
+            font-weight:600;
+        }
+
+        .section-nav{
+            display:flex;
+            gap:16px;
+            flex-wrap:wrap;
             font-size:0.9rem;
         }
-        .btn:focus{outline:2px solid rgba(6,182,212,0.25);outline-offset:2px}
 
-        main{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:20px}
-        @media (max-width:880px){main{grid-template-columns:1fr} .avatar{width:72px;height:72px;flex:0 0 72px}}
-
-        section.card{
-            background:rgba(255,255,255,0.02);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)
+        .section-nav a{
+            padding:8px 14px;
+            border-radius:999px;
+            border:1px solid transparent;
+            color:var(--muted);
         }
-        h2{margin:0 0 8px;font-size:1.05rem}
-        .bio{color:var(--muted);margin-bottom:12px}
 
-        .skills{display:flex;flex-wrap:wrap;gap:8px}
+        .section-nav a:hover{
+            border-color:var(--line);
+            color:var(--ink);
+        }
+
+        main{display:flex;flex-direction:column;gap:40px}
+
+        section{
+            display:grid;
+            grid-template-columns:180px 1fr;
+            gap:32px;
+            padding-bottom:32px;
+            border-bottom:1px solid var(--line);
+        }
+
+        section:last-of-type{border-bottom:none;padding-bottom:0}
+
+        .section-title{
+            font-size:0.82rem;
+            letter-spacing:0.15em;
+            text-transform:uppercase;
+            color:var(--muted);
+            line-height:1.4;
+        }
+
+        .section-body{display:flex;flex-direction:column;gap:20px}
+
+        .bullet-list{
+            margin:0;
+            padding-left:20px;
+            color:var(--muted);
+        }
+
+        .bullet-list li{margin-bottom:10px}
+        .bullet-list li:last-child{margin-bottom:0}
+
+        .role{
+            padding:22px 24px;
+            border:1px solid var(--line);
+            border-radius:18px;
+            background:var(--card);
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+        }
+
+        .role h3{
+            margin:0;
+            font-size:1.1rem;
+        }
+
+        .role-meta{
+            font-size:0.85rem;
+            color:var(--muted);
+        }
+
+        .tight{padding-left:18px}
+
+        .chips{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+        }
+
         .chip{
-            background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;font-size:0.85rem;color:var(--muted);
-            border:1px solid rgba(255,255,255,0.02)
+            border-radius:999px;
+            padding:6px 14px;
+            border:1px solid var(--line);
+            font-size:0.85rem;
+            color:var(--muted);
+            background:rgba(255,255,255,0.6);
         }
 
-        .contact a{display:inline-block;margin-right:8px;margin-top:6px;color:var(--accent);text-decoration:none;font-weight:600}
-        .meta{font-size:0.9rem;color:var(--muted)}
+        .card-note{
+            border:1px solid var(--line);
+            border-radius:18px;
+            padding:22px;
+            background:rgba(255,255,255,0.45);
+            color:var(--muted);
+        }
 
-        footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.85rem}
+        footer{
+            color:var(--muted);
+            font-size:0.85rem;
+            text-align:center;
+        }
+
+        @media (max-width:900px){
+            body{padding:40px 16px 56px}
+            .hero{padding:40px}
+            section{grid-template-columns:1fr;gap:18px}
+        }
+
+        @media (max-width:640px){
+            body{padding:32px 16px 48px}
+            .hero{padding:32px}
+            .hero-cta{flex-direction:column;align-items:flex-start}
+            .btn{width:100%;justify-content:center}
+            main{gap:32px}
+        }
     </style>
 </head>
 <body>
-    <div class="container" role="document">
-        <header>
-            <div class="avatar" aria-hidden="true">
-                <!-- Replace the SVG with your photo: <img src="me.jpg" alt="Your Name"> -->
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect width="24" height="24" rx="6" fill="#092032"/>
-                    <path d="M12 12c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z" fill="#0fb9c6"/>
-                    <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v0H4z" fill="#083447"/>
-                </svg>
-            </div>
+    <div class="page" role="document">
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="hero-overline">Elian Isac · culture-first engineer</p>
+                <h1>Engineering calm systems with a trader's composure.</h1>
+                <p class="hero-lead">
+                    Computer Science student at ETH Zürich fusing capital-markets intuition with remote-first backend craftsmanship.
+                    I build infrastructure that stays reliable under pressure, write the documentation that keeps distributed teams aligned,
+                    and bring a culture lens to every technical decision.
+                </p>
 
-            <div>
-                <h1>Your Name</h1>
-                <p class="lead">Developer • Designer • Problem solver</p>
-            </div>
-
-            <nav aria-label="Quick links">
-                <div class="nav-links">
-                    <a class="btn" href="#about">About</a>
-                    <a class="btn" href="#projects">Projects</a>
-                    <a class="btn" href="#contact">Contact</a>
+                <div class="hero-meta">
+                    <div class="meta-block">
+                        <span class="meta-label">Currently</span>
+                        <p>Backend & Software Engineer — Swissloop Tunneling · re-architecting a mission-critical control stack into modular C++ with automated observability.</p>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Also</span>
+                        <p>Education Division — ETH Robotics Club · build-first workshops that get peers productive in robotics frameworks within hours.</p>
+                    </div>
                 </div>
-            </nav>
+
+                <div class="hero-cta">
+                    <a class="btn primary" href="https://www.linkedin.com/in/elianisac" target="_blank" rel="noopener">Connect on LinkedIn</a>
+                    <a class="btn ghost" href="#experience">Experience ledger</a>
+                </div>
+            </div>
+
+            <div class="hero-card" aria-label="Working dossier">
+                <div class="passport">
+                    <span class="meta-label">Base</span>
+                    <p>Zürich, Switzerland · CET ±3h · Remote-native</p>
+                </div>
+                <div class="passport">
+                    <span class="meta-label">Working style</span>
+                    <p>Documentation-first rituals, async stand-ups, instrumentation before intuition.</p>
+                </div>
+                <div class="hero-note">
+                    Italian & Romanian (native) · English & German (fluent) · French (intermediate)
+                </div>
+            </div>
         </header>
 
+        <nav class="section-nav" aria-label="Sections">
+            <a href="#profile">Profile</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#builds">Builds</a>
+            <a href="#toolkit">Toolkit</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
         <main>
-            <div>
-                <section id="about" class="card" aria-labelledby="about-heading">
-                    <h2 id="about-heading">About</h2>
-                    <p class="bio">
-                        Briefly describe yourself here. Mention what you do, the problems you enjoy solving, and technologies you use.
-                        Keep it short and update it as you grow.
+            <section id="profile">
+                <div class="section-title">Profile</div>
+                <div class="section-body">
+                    <p>
+                        I sit where rigorous systems engineering meets culture-led execution. Trading competitions
+                        taught me to decide with incomplete data; student-led hardware teams taught me to keep a crew aligned across time zones;
+                        extended periods working abroad taught me to value asynchronous rituals that respect focus. The result: a banker-minded
+                        technologist who keeps product velocity high without breaking trust.
                     </p>
-
-                    <h3 style="margin:14px 0 8px">Highlights</h3>
-                    <ul class="meta" style="margin:0 0 12px 20px">
-                        <li>Location • City, Country</li>
-                        <li>Open to work / freelance / collaborations</li>
-                        <li>Prefer: JavaScript, HTML, CSS, and modern web tools</li>
+                    <ul class="bullet-list">
+                        <li><strong>Trader energy.</strong> UBS x ETH Trading Challenge alumnus—comfortable managing risk and tempo when the room gets loud.</li>
+                        <li><strong>Operational clarity.</strong> Author of onboarding guides, runbooks, and fault playbooks that shrink hand-off friction.</li>
+                        <li><strong>Remote-first habits.</strong> Set up containerized environments, telemetry dashboards, and async communication loops for 10+ teammates.</li>
                     </ul>
+                </div>
+            </section>
 
-                    <h3 style="margin:14px 0 8px">Projects</h3>
-                    <p class="meta" style="margin:0 0 10px">A few examples: portfolio, small web apps, open-source contributions.</p>
-                    <a href="#projects" class="btn" style="text-decoration:none">View projects</a>
-                </section>
+            <section id="experience">
+                <div class="section-title">Experience</div>
+                <div class="section-body">
+                    <article class="role">
+                        <div>
+                            <h3>Swissloop Tunneling</h3>
+                            <div class="role-meta">Backend & Software Engineer · Jun 2024 – Present · ETH Student Project House</div>
+                        </div>
+                        <ul class="bullet-list tight">
+                            <li>Shifted a Python monolith into a modular C++ framework, unlocking faster iteration and safer subsystem ownership.</li>
+                            <li>Built out the dev environment for 10+ contributors with containerized services, CI hooks, and clear branching standards.</li>
+                            <li>Instrumented automated monitoring and fault detection so operators catch anomalies before hardware does.</li>
+                            <li>Wrote concise documentation that keeps onboarding under one week—even when travel schedules collide.</li>
+                        </ul>
+                    </article>
 
-                <section id="projects" class="card" style="margin-top:16px" aria-labelledby="projects-heading">
-                    <h2 id="projects-heading">Selected projects</h2>
-                    <ul style="margin:8px 0 0 20px;color:var(--muted)">
-                        <li><strong>Project A</strong> — short 1-line description. <a href="#" style="color:var(--accent)">live</a> · <a href="#" style="color:var(--accent)">code</a></li>
-                        <li><strong>Project B</strong> — short 1-line description. <a href="#" style="color:var(--accent)">live</a> · <a href="#" style="color:var(--accent)">code</a></li>
-                        <li><strong>Project C</strong> — short 1-line description. <a href="#" style="color:var(--accent)">live</a> · <a href="#" style="color:var(--accent)">code</a></li>
-                    </ul>
-                </section>
-            </div>
+                    <article class="role">
+                        <div>
+                            <h3>ETH Robotics Club</h3>
+                            <div class="role-meta">Education Division Member · Jun 2025 – Present · ETH Hangar</div>
+                        </div>
+                        <ul class="bullet-list tight">
+                            <li>Design and deliver robotics workshops that convert theory into actionable build scripts within a single session.</li>
+                            <li>Coordinate event logistics so speakers, mentors, and attendees stay synced without over-structuring the vibe.</li>
+                            <li>Document playbooks for recurring events, making it simple for new leads to step in mid-season.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
 
-            <aside>
-                <section class="card" aria-labelledby="skills-heading">
-                    <h2 id="skills-heading">Skills</h2>
-                    <div class="skills" style="margin-top:8px">
-                        <span class="chip">HTML</span>
-                        <span class="chip">CSS</span>
-                        <span class="chip">JavaScript</span>
-                        <span class="chip">React</span>
-                        <span class="chip">Node.js</span>
-                        <span class="chip">Git</span>
+            <section id="education">
+                <div class="section-title">Education & Signals</div>
+                <div class="section-body">
+                    <div class="role">
+                        <div>
+                            <h3>ETH Zürich</h3>
+                            <div class="role-meta">BSc Computer Science · 5th Semester · 2023 – Present</div>
+                        </div>
+                        <p class="card-note">
+                            Focus on software architecture, data structures, and decision-making under pressure.
+                            Balancing coursework with hands-on engineering in student-led initiatives.
+                        </p>
                     </div>
-
-                    <h2 style="margin-top:16px">Contact</h2>
-                    <div class="contact" id="contact" style="margin-top:8px">
-                        <!-- Replace placeholders -->
-                        <a href="mailto:you@example.com">you@example.com</a><br>
-                        <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a><br>
-                        <a href="https://linkedin.com/in/username" target="_blank" rel="noopener">linkedin.com/in/username</a>
+                    <div class="role">
+                        <div>
+                            <h3>Liceo Cantonale di Locarno</h3>
+                            <div class="role-meta">Physics & Applied Mathematics · Bilingual Matura (German–Italian) · 2019 – 2023</div>
+                        </div>
+                        <p class="card-note">
+                            Built early fluency in quantitative reasoning and multilingual collaboration across cross-border projects.
+                        </p>
                     </div>
-
-                    <div style="margin-top:14px" class="meta">
-                        Available for freelance & remote roles
+                    <div class="card-note">
+                        <strong>Signals worth noting:</strong> UBS x ETH Trading Challenge 2025 participant · Endurance running to keep resilience honest ·
+                        Fishing to stay patient with slow data.
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="card" style="margin-top:16px" aria-labelledby="notes-heading">
-                    <h2 id="notes-heading">Notes</h2>
-                    <p class="meta" style="margin:0">This is a single-file starter for a personal "about me" page. Customize text, colors, and links.</p>
-                </section>
-            </aside>
+            <section id="builds">
+                <div class="section-title">Builds</div>
+                <div class="section-body">
+                    <article class="role">
+                        <div>
+                            <h3>Home Server & Personal Cloud</h3>
+                            <div class="role-meta">Ongoing · Zürich-based hardware stack</div>
+                        </div>
+                        <ul class="bullet-list tight">
+                            <li>Designed a secure home lab to deploy cloud apps, manage personal data, and stress-test infrastructure before shipping it to teams.</li>
+                            <li>Automated backups, VPN access, and observability so travel never blocks access to critical files.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section id="toolkit">
+                <div class="section-title">Toolkit</div>
+                <div class="section-body">
+                    <div>
+                        <strong>Languages</strong>
+                        <div class="chips">
+                            <span class="chip">Python</span>
+                            <span class="chip">C / C++</span>
+                            <span class="chip">Java</span>
+                            <span class="chip">SQL</span>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Stacks & Tools</strong>
+                        <div class="chips">
+                            <span class="chip">Docker</span>
+                            <span class="chip">Git & GitHub</span>
+                            <span class="chip">GitHub API</span>
+                            <span class="chip">NumPy</span>
+                            <span class="chip">Matplotlib</span>
+                            <span class="chip">yfinance</span>
+                            <span class="chip">Google Apps Script</span>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>How I work</strong>
+                        <div class="chips">
+                            <span class="chip">Runbooks</span>
+                            <span class="chip">Telemetry dashboards</span>
+                            <span class="chip">Async rituals</span>
+                            <span class="chip">Rapid prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="section-title">Contact</div>
+                <div class="section-body">
+                    <div class="card-note">
+                        <p style="margin:0 0 12px">
+                            Ready for culture-led fintech teams who value clarity, ownership, and remote polish.
+                            Reach out when you want to move fast without losing composure.
+                        </p>
+                        <p style="margin:0"><a href="https://www.linkedin.com/in/elianisac" target="_blank" rel="noopener">linkedin.com/in/elianisac</a></p>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer>
-            <div>© <!-- Replace with current year and your name --> 2025 Your Name</div>
+            © 2025 Elian Isac — remote-first, culture-first.
         </footer>
     </div>
 </body>
-</html></ul>
+</html>
