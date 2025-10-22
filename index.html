@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="About me — brief bio, skills, and contact." />
+    <title>Your Name — About</title>
+
+    <!-- Minimal, self-contained styling -->
+    <style>
+        :root{
+            --bg:#0f172a; --card:#0b1220; --muted:#9aa4b2; --accent:#06b6d4;
+            --glass: rgba(255,255,255,0.03);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            background:linear-gradient(180deg,var(--bg) 0%, #071028 100%);
+            color:#e6eef6;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.45;
+            padding:32px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:16px;
+        }
+
+        .container{
+            width:100%;
+            max-width:960px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.04);
+            border-radius:12px;
+            padding:28px;
+            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+            backdrop-filter: blur(6px);
+        }
+
+        header{display:flex;gap:20px;align-items:center}
+        .avatar{
+            width:96px;height:96px;border-radius:14px;
+            background:linear-gradient(135deg,var(--glass),rgba(255,255,255,0.02));
+            display:grid;place-items:center;
+            flex:0 0 96px;
+            border:1px solid rgba(255,255,255,0.04);
+            overflow:hidden;
+        }
+        .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+        h1{margin:0;font-size:1.5rem;letter-spacing:-0.02em}
+        p.lead{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
+
+        nav{margin-left:auto}
+        .nav-links{display:flex;gap:10px}
+        .btn{
+            background:transparent;border:1px solid rgba(255,255,255,0.06);
+            color:var(--muted);padding:8px 12px;border-radius:8px;text-decoration:none;
+            font-size:0.9rem;
+        }
+        .btn:focus{outline:2px solid rgba(6,182,212,0.25);outline-offset:2px}
+
+        main{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:20px}
+        @media (max-width:880px){main{grid-template-columns:1fr} .avatar{width:72px;height:72px;flex:0 0 72px}}
+
+        section.card{
+            background:rgba(255,255,255,0.02);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)
+        }
+        h2{margin:0 0 8px;font-size:1.05rem}
+        .bio{color:var(--muted);margin-bottom:12px}
+
+        .skills{display:flex;flex-wrap:wrap;gap:8px}
+        .chip{
+            background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;font-size:0.85rem;color:var(--muted);
+            border:1px solid rgba(255,255,255,0.02)
+        }
+
+        .contact a{display:inline-block;margin-right:8px;margin-top:6px;color:var(--accent);text-decoration:none;font-weight:600}
+        .meta{font-size:0.9rem;color:var(--muted)}
+
+        footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.85rem}
+    </style>
+</head>
+<body>
+    <div class="container" role="document">
+        <header>
+            <div class="avatar" aria-hidden="true">
+                <!-- Replace the SVG with your photo: <img src="me.jpg" alt="Your Name"> -->
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect width="24" height="24" rx="6" fill="#092032"/>
+                    <path d="M12 12c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z" fill="#0fb9c6"/>
+                    <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v0H4z" fill="#083447"/>
+                </svg>
+            </div>
+
+            <div>
+                <h1>Your Name</h1>
+                <p class="lead">Developer • Designer • Problem solver</p>
+            </div>
+
+            <nav aria-label="Quick links">
+                <div class="nav-links">
+                    <a class="btn" href="#about">About</a>
+                    <a class="btn" href="#projects">Projects</a>
+                    <a class="btn" href="#contact">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div>
+                <section id="about" class="card" aria-labelledby="about-heading">
+                    <h2 id="about-heading">About</h2>
+                    <p class="bio">
+                        Briefly describe yourself here. Mention what you do, the problems you enjoy solving, and technologies you use.
+                        Keep it short and update it as you grow.
+                    </p>
+
+                    <h3 style="margin:14px 0 8px">Highlights</h3>
+                    <ul class="meta" style="margin:0 0 12px 20px">
+                        <li>Location • City, Country</li>
+                        <li>Open to work / freelance / collaborations</li>
+                        <li>Prefer: JavaScript, HTML, CSS, and modern web tools</li>
+                    </ul>
+
+                    <h3 style="margin:14px 0 8px">Projects</h3>
+                    <p class="meta" style="margin:0 0 10px">A few examples: portfolio, small web apps, open-source contributions.</p>
+                    <a href="#projects" class="btn" style="text-decoration:none">View projects</a>
+                </section>
+
+                <section id="projects" class="card" style="margin-top:16px" aria-labelledby="projects-heading">
+                    <h2 id="projects-heading">Selected projects</h2>
+                    <ul style="margin:8px 0 0 20px;color:var(--muted)">
+                        <li><strong>Project A</strong> — short 1-line description. <a href="#" style="color:var(--accent)">live</a> · <a href="#" style="color:var(--accent)">code</a></li>
+                        <li><strong>Project B</strong> — short 1-line description. <a href="#" style="color:var(--accent)">live</a> · <a href="#" style="color:var(--accent)">code</a></li>
+                        <li><strong>Project C</strong> — short 1-line description. <a href="#" style="color:var(--accent)">live</a> · <a href="#" style="color:var(--accent)">code</a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <aside>
+                <section class="card" aria-labelledby="skills-heading">
+                    <h2 id="skills-heading">Skills</h2>
+                    <div class="skills" style="margin-top:8px">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">React</span>
+                        <span class="chip">Node.js</span>
+                        <span class="chip">Git</span>
+                    </div>
+
+                    <h2 style="margin-top:16px">Contact</h2>
+                    <div class="contact" id="contact" style="margin-top:8px">
+                        <!-- Replace placeholders -->
+                        <a href="mailto:you@example.com">you@example.com</a><br>
+                        <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a><br>
+                        <a href="https://linkedin.com/in/username" target="_blank" rel="noopener">linkedin.com/in/username</a>
+                    </div>
+
+                    <div style="margin-top:14px" class="meta">
+                        Available for freelance & remote roles
+                    </div>
+                </section>
+
+                <section class="card" style="margin-top:16px" aria-labelledby="notes-heading">
+                    <h2 id="notes-heading">Notes</h2>
+                    <p class="meta" style="margin:0">This is a single-file starter for a personal "about me" page. Customize text, colors, and links.</p>
+                </section>
+            </aside>
+        </main>
+
+        <footer>
+            <div>© <!-- Replace with current year and your name --> 2025 Your Name</div>
+        </footer>
+    </div>
+</body>
+</html></ul>
