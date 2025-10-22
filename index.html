@@ -4,99 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elian Isac</title>
-  <link href="https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
     html, body {
       height: 100%;
       margin: 0;
-      background: radial-gradient(circle at center, #f7f7f7, #eaeaea);
       overflow: hidden;
     }
+
     body {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      font-family: 'WindSong', cursive;
+      background: linear-gradient(120deg, #191a2e, #2d0f3f, #091a32);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* floating glass highlight */
+    .liquid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        transparent 70%);
+      filter: blur(100px) saturate(150%);
+      transition: background-position 0.1s;
+      z-index: 0;
+    }
+
+    main {
+      text-align: center;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 2s ease forwards;
     }
 
     h1 {
+      font-family: 'Great Vibes', cursive;
       font-size: 5rem;
-      color: rgba(0,0,0,0.85);
-      letter-spacing: 2px;
-      mix-blend-mode: multiply;
-      position: relative;
-      z-index: 2;
-      user-select: none;
+      font-weight: 400;
+      margin: 0;
+      text-shadow: 0 0 40px rgba(255,255,255,0.3);
+      animation: float 6s ease-in-out infinite;
     }
 
     p {
       font-family: Helvetica, Arial, sans-serif;
-      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
       letter-spacing: 0.5px;
-      margin-top: -0.5rem;
-      color: rgba(0,0,0,0.5);
-      z-index: 2;
-      position: relative;
+      margin-top: 0.5rem;
+      font-size: 1rem;
     }
 
     button {
       margin-top: 2rem;
       font-family: Helvetica, Arial, sans-serif;
-      font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 2rem;
+      padding: 0.8rem 1.6rem;
       backdrop-filter: blur(10px);
-      padding: 0.7rem 1.6rem;
-      color: #111;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
     }
 
     button:hover {
-      background: rgba(0,0,0,0.8);
-      color: white;
-      border-color: rgba(0,0,0,0.8);
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.5);
+      transform: scale(1.05);
     }
 
-    /* the floaty liquid glass layer */
-    .liquid {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: radial-gradient(circle at var(--x,50%) var(--y,50%), 
-        rgba(255,255,255,0.4), 
-        rgba(255,255,255,0.1) 30%, 
-        transparent 70%);
-      filter: blur(80px);
-      transition: background-position 0.1s;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    main {
-      text-align: center;
-      animation: float 6s ease-in-out infinite;
-      position: relative;
-      z-index: 3;
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
 <body>
   <div class="liquid"></div>
+
   <main>
-    <h1>Elian Isac</h1>
+    <h1>Elian&nbsp;Isac</h1>
     <p>Computer Science · ETH Zürich</p>
-    <button onclick="window.open('https://linkedin.com/in/elianisac', '_blank')">Connect on LinkedIn</button>
+    <button onclick="window.open('https://linkedin.com/in/elianisac', '_blank')">
+      Connect on LinkedIn
+    </button>
   </main>
 
   <script>
