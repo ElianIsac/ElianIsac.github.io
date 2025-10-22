@@ -128,7 +128,27 @@
     <section id="connect">
       <h2>Let’s connect</h2>
       <p>If you want to collaborate, chat tech, or discuss an idea — drop me a message.</p>
-      <a href="mailto:elianisac@ethz.ch" class="socials" style="font-size:1rem; text-decoration:none; color:var(--accent); border:1px solid var(--accent); padding:0.6rem 1.2rem; border-radius:2rem;">Get in touch</a>
+    <a href="mailto:elianisac@ethz.ch" class="contact-btn">Get in touch</a>
+    <style>
+    .contact-btn {
+        font-size: 1rem;
+        text-decoration: none;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        padding: 0.6rem 1.2rem;
+        border-radius: 2rem;
+        background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 0%, transparent 0%);
+        background-size: 200% 100%;
+        background-position: right;
+        transition: background-position 0.5s cubic-bezier(.77,0,.175,1), color 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+    .contact-btn:hover {
+        background-position: left;
+        color: #fff;
+    }
+    </style>
     </section>
   </main>
 
